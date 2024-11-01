@@ -1,0 +1,47 @@
+{
+    "name": "@luskproject/builtins",
+    "version": "1.0.0",
+    "description": "Builtins for Lusk",
+    "main": "transit.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/luskproject/lusk-builtins.git"
+    },
+    "keywords": [
+        "lusk",
+        "project",
+        "manager",
+        "project-manager",
+        "javascript"
+    ],
+    "maintainers": [
+        {
+            "name": "Botaro Shinomiya",
+            "email": "nothing@citri.one",
+            "web": "https://github.com/citrizon"
+        },
+        {
+            "name": "OSCILLIX",
+            "email": "oscillixonline@gmail.com",
+            "web": "https://github.com/Oscillix"
+        },
+        {
+            "name": "Bluskript",
+            "email": "bluskript@gmail.com",
+            "web": "https://github.com/bluskript"
+        },
+        {
+            "name": "N1kO23",
+            "email": "niko.huuskonen.00@gmail.com",
+            "web": "https://github.com/N1kO23"
+        }
+    ],
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/luskproject/lusk-builtins/issues"
+    },
+    "homepage": "https://github.com/luskproject/lusk-builtins#readme"
+}
