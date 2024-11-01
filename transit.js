@@ -18,6 +18,17 @@
 Transit( {
     id: "LuskBuiltins",
     plugin ( Manager ) {
+        const add = Manager.actions.add.bind( Manager.actions );
 
+        // Filesystem Stuff
+        add( require( './actions/fsTouch' ) );
+        add( require( './actions/fsCopy' ) );
+        add( require( './actions/fsMkdir' ) );
+        add( require( './actions/fsClean' ) );
+        add( require( './actions/fsRemove' ) );
+
+        // Internal Stuff
+        add( require( './actions/osShell' ) );
+        add( require( './actions/luskTransit' ) );
     }
 } );
