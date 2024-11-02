@@ -29,7 +29,7 @@ module.exports = {
         overwrite: false,
         skippable: false
     },
-    async action ( document, path ) {
+    async action ( document, path, homedir, solution ) {
         Terminal.log( `Performing ${ colors.fg.cyan( document.action ) } on path ${ colors.fg.yellow( document.destination ) }` );
 
         // Get the real destination
