@@ -17,6 +17,7 @@
 
 const { join, isAbsolute } = require( 'node:path' );
 const { readdirSync, rmSync, existsSync } = require( 'node:fs' );
+const { isParentOrSamePath } = require( '../utils/pathUtils' );
 
 module.exports = {
     id: 'fs.clean',
@@ -25,11 +26,17 @@ module.exports = {
         source: 'build',
         skippable: false
     },
-    async action ( document, path ) {
+    async action ( document, path, homedir, solution ) {
         Terminal.log( `Performing ${ colors.fg.cyan( document.action ) } on directory ${ colors.fg.yellow( document.source ) }` );
 
         // Get the real source
         const source = isAbsolute( document.source ) ? document.source : join( path, document.source );
+
+        // After getting the real source, check if the
+        // solution exists and if so, make sure that
+        // our source path exists in the included files.
+        if ( solution && !solution.included.some( solPath => isParentOrSamePath( solPath, source ) ) )
+            throw new Errors.SourceNotInSolutionError( `Given source path "${ source }" is not included in the included files in the solution` );
 
         // Check if source exists.
         if ( !existsSync( source ) && !document.skippable )
