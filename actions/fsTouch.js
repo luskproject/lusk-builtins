@@ -15,6 +15,7 @@
     check https://github.com/luskproject/lusk-builtins/
 */
 
+const { Colors, Terminal, Errors } = require( 'lusk:internal' );
 const { join, isAbsolute } = require( 'node:path' );
 const { writeFileSync, existsSync } = require( 'node:fs' );
 const { isParentOrSamePath } = require( '../utils/pathUtils' );
@@ -30,7 +31,7 @@ module.exports = {
         skippable: false
     },
     async action ( document, path, homedir, solution ) {
-        Terminal.log( `Performing ${ colors.fg.cyan( document.action ) } on path ${ colors.fg.yellow( document.destination ) }` );
+        Terminal.log( `Performing ${ Colors.fg.cyan( document.action ) } on path ${ Colors.fg.yellow( document.destination ) }` );
 
         // Get the real destination
         const destination = isAbsolute( document.destination ) ? document.destination : join( path, document.destination );

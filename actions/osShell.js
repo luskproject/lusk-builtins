@@ -15,6 +15,7 @@
     check https://github.com/luskproject/lusk-builtins/
 */
 
+const { Colors, Terminal } = require( 'lusk:internal' );
 const { execSync } = require( 'node:child_process' );
 
 function swallow ( ...args ) {
@@ -35,7 +36,7 @@ module.exports = {
         skippable: false
     },
     async action ( document, path ) {
-        const con = Terminal.log( `Performing ${ colors.fg.cyan( document.action ) }` );
+        const con = Terminal.log( `Performing ${ Colors.fg.cyan( document.action ) }` );
         for ( const cmd of document.cmdlines ) {
             con.next.log( cmd );
             const output = execSync.swallow(

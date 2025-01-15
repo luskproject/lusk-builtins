@@ -15,6 +15,7 @@
     check https://github.com/luskproject/lusk-builtins/
 */
 
+const { Colors, Terminal } = require( 'lusk:internal' );
 const { join, isAbsolute } = require( 'node:path' );
 const { existsSync } = require( 'node:fs' );
 
@@ -27,7 +28,7 @@ module.exports = {
         skippable: false
     },
     async action ( document, path ) {
-        Terminal.log( `Performing ${ colors.fg.cyan( document.action ) } on file ${ colors.fg.yellow( document.source ) }` );
+        Terminal.log( `Performing ${ Colors.fg.cyan( document.action ) } on file ${ Colors.fg.yellow( document.source ) }` );
 
         // Get the real source
         const source = isAbsolute( document.source ) ? document.source : join( path, document.source );
