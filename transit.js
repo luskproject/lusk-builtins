@@ -15,6 +15,8 @@
     check https://github.com/luskproject/lusk-builtins/
 */
 
+const { Transit } = require( 'lusk:internal' );
+
 Transit( {
     id: "LuskBuiltins",
     plugin ( Manager ) {
