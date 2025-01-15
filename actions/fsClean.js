@@ -15,7 +15,7 @@
     check https://github.com/luskproject/lusk-builtins/
 */
 
-const { Colors, Terminal, Errors } = require( 'lusk:internal' )
+const { Colors, Terminal, Errors } = require( 'lusk:internal' );
 const { join, isAbsolute } = require( 'node:path' );
 const { readdirSync, rmSync, existsSync } = require( 'node:fs' );
 const { isParentOrSamePath } = require( '../utils/pathUtils' );
