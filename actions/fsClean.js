@@ -15,6 +15,7 @@
     check https://github.com/luskproject/lusk-builtins/
 */
 
+const { Colors, Terminal, Errors } = require( 'lusk:internal' )
 const { join, isAbsolute } = require( 'node:path' );
 const { readdirSync, rmSync, existsSync } = require( 'node:fs' );
 const { isParentOrSamePath } = require( '../utils/pathUtils' );
@@ -27,7 +28,7 @@ module.exports = {
         skippable: false
     },
     async action ( document, path, homedir, solution ) {
-        Terminal.log( `Performing ${ colors.fg.cyan( document.action ) } on directory ${ colors.fg.yellow( document.source ) }` );
+        Terminal.log( `Performing ${ Colors.fg.cyan( document.action ) } on directory ${ Colors.fg.yellow( document.source ) }` );
 
         // Get the real source
         const source = isAbsolute( document.source ) ? document.source : join( path, document.source );
